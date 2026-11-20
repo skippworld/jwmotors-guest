@@ -409,8 +409,8 @@ html.cust input,html.cust textarea{-webkit-user-select:text;user-select:text}
 html.cust img{-webkit-user-drag:none;pointer-events:none}
 #splash{position:fixed;inset:0;z-index:200;background:#060606;display:grid;place-items:center;transition:opacity .8s ease .55s}
 #splash .sp-in{transition:opacity .6s ease}
-#splash.out .sp-in{opacity:0}
-#splash.out{opacity:0}
+#splash.sp-out .sp-in{opacity:0}
+#splash.sp-out{opacity:0}
 html.cust.splashing body>header,html.cust.splashing body>main,html.cust.splashing body>footer,html.cust.splashing .dock{opacity:0}
 html.cust body>header,html.cust body>main,html.cust body>footer,html.cust .dock{transition:opacity .8s ease .5s}
 #splash .sp-in{display:flex;flex-direction:column;align-items:center;gap:22px}
@@ -437,7 +437,7 @@ html.blocked #blockmsg{display:grid;position:fixed;inset:0;place-items:center;ba
 <div id="blockmsg"><div><img src="image/logo.png" alt="JW MOTORS"><h2>장우카센타 공식 사이트에서 이용해주세요</h2><p>이 페이지는 공식 주소에서만 이용할 수 있어요.</p><a href="https://jwmotors-for-guest.vercel.app/">공식 사이트로 이동</a></div></div>
 <script>
 (function(){var sp=document.getElementById('splash');var done=false;document.documentElement.classList.add('splashing');
-function close(){if(done)return;done=true;sp.classList.add('out');document.documentElement.classList.remove('splashing');setTimeout(function(){sp.remove();var q=document.getElementById('q');if(q&&!document.documentElement.classList.contains('blocked'))q.focus();},1450);}
+function close(){if(done)return;done=true;sp.classList.add('sp-out');document.documentElement.classList.remove('splashing');setTimeout(function(){sp.remove();var q=document.getElementById('q');if(q&&!document.documentElement.classList.contains('blocked'))q.focus();},1450);}
 sp.addEventListener('click',close);setTimeout(close,3600);})();
 </script>
 <script>
