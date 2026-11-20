@@ -281,7 +281,10 @@ html.cust .out{align-items:start}
 .mapv .pin{animation:pbob 2s ease-in-out infinite}
 @keyframes pbob{50%{transform:translate(352px,111px)}}
 .mapnote svg{color:var(--or)}
-.mapnote{display:flex;align-items:center;gap:6px;margin-top:8px;padding:0 2px;font-size:11.5px;font-weight:600;color:var(--ink2)}
+.mapnote a{margin-left:auto;color:var(--or-ink);font-weight:700;text-decoration:none;white-space:nowrap}
+.gmap{position:relative;aspect-ratio:5/4;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#eef0eb}
+.gmap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mapnote{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px;padding:0 2px;font-size:11.5px;font-weight:600;color:var(--ink2)}
 .mapv .road{position:absolute;background:#fff;box-shadow:0 0 0 1px #e1e3de}
 .mapv .r1{left:-10%;right:-10%;top:58%;height:16px;transform:rotate(-8deg)}
 .mapv .r2{top:-10%;bottom:-10%;left:38%;width:12px;transform:rotate(14deg)}
@@ -404,8 +407,12 @@ html.authed #login{display:none}
 html.cust body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html.cust input,html.cust textarea{-webkit-user-select:text;user-select:text}
 html.cust img{-webkit-user-drag:none;pointer-events:none}
-#splash{position:fixed;inset:0;z-index:200;background:#060606;display:grid;place-items:center;transition:opacity .7s ease}
+#splash{position:fixed;inset:0;z-index:200;background:#060606;display:grid;place-items:center;transition:opacity .8s ease .55s}
+#splash .sp-in{transition:opacity .6s ease}
+#splash.out .sp-in{opacity:0}
 #splash.out{opacity:0}
+html.cust.splashing body>header,html.cust.splashing body>main,html.cust.splashing body>footer,html.cust.splashing .dock{opacity:0}
+html.cust body>header,html.cust body>main,html.cust body>footer,html.cust .dock{transition:opacity .8s ease .5s}
 #splash .sp-in{display:flex;flex-direction:column;align-items:center;gap:22px}
 #splash .sp-logo{position:relative;width:min(300px,70vw);opacity:0;transform:scale(.72);animation:spIn 2.2s cubic-bezier(.2,.7,.2,1) .2s forwards}
 #splash .sp-logo:before{content:"";position:absolute;inset:-40%;background:radial-gradient(closest-side,rgba(255,130,20,.35),transparent);opacity:0;animation:spGlow 2.4s ease .9s forwards}
@@ -429,8 +436,8 @@ html.blocked #blockmsg{display:grid;position:fixed;inset:0;place-items:center;ba
 <div id="splash" aria-hidden="true"><div class="sp-in"><div class="sp-logo"><img src="image/logo.png" alt=""><i class="sp-shine"></i></div><p class="sp-t">어서오세요, <b>노원 장우카센타</b> 입니다.</p></div></div>
 <div id="blockmsg"><div><img src="image/logo.png" alt="JW MOTORS"><h2>장우카센타 공식 사이트에서 이용해주세요</h2><p>이 페이지는 공식 주소에서만 이용할 수 있어요.</p><a href="https://jwmotors-for-guest.vercel.app/">공식 사이트로 이동</a></div></div>
 <script>
-(function(){var sp=document.getElementById('splash');var done=false;
-function close(){if(done)return;done=true;sp.classList.add('out');setTimeout(function(){sp.remove();var q=document.getElementById('q');if(q&&!document.documentElement.classList.contains('blocked'))q.focus();},700);}
+(function(){var sp=document.getElementById('splash');var done=false;document.documentElement.classList.add('splashing');
+function close(){if(done)return;done=true;sp.classList.add('out');document.documentElement.classList.remove('splashing');setTimeout(function(){sp.remove();var q=document.getElementById('q');if(q&&!document.documentElement.classList.contains('blocked'))q.focus();},1450);}
 sp.addEventListener('click',close);setTimeout(close,3600);})();
 </script>
 <script>
@@ -561,23 +568,7 @@ sp.addEventListener('click',close);setTimeout(close,3600);})();
   <div class="card pad">
     <h2 class="sec"><span class="b"><svg class="i"><use href="#i-pin"/></svg></span>찾아오시는 길</h2>
     <div class="locg">
-      <div class="mapw"><div class="mapv" aria-label="장우카센타 약도"><svg viewBox="0 0 600 440" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <rect width="600" height="440" fill="#eef0eb"/>
-  <rect x="0" y="0" width="120" height="70" fill="#dfe9d6"/>
-  <rect x="190" y="18" width="150" height="105" rx="6" fill="#dbe5ef"/><text x="265" y="76" class="ml">온곡중학교</text>
-  <rect x="345" y="175" width="160" height="95" rx="6" fill="#dbe5ef"/><text x="425" y="227" class="ml">상계초등학교</text>
-  <g class="rd"><path d="M-20 60 C 120 90 230 170 300 262"/><path d="M342 -10 L 330 150 L 300 262"/><path d="M300 262 L 420 450"/><path d="M-10 250 L 300 262"/><path d="M330 150 L 620 120"/><path d="M300 262 L 610 300"/></g>
-  <g class="rd2"><path d="M140 300 L 120 450"/><path d="M470 280 L 500 450"/><path d="M200 330 L 600 400"/></g>
-  <text x="70" y="98" class="rl" transform="rotate(18 70 98)">노원로</text>
-  <text x="318" y="282" class="ml">상계초교사거리</text>
-  <path class="subway" d="M-10 432 L 610 352"/>
-  <g transform="translate(170 410)"><rect x="-32" y="-11" width="64" height="22" rx="11" fill="#2f6fd1"/><text x="0" y="5" class="st">노원역</text></g>
-  <text x="250" y="384" class="sl" transform="rotate(-7 250 384)">4호선</text>
-  <path class="route" d="M170 398 L 230 330 L 300 262 L 330 150 L 352 126"/>
-  <g class="pin" transform="translate(352 118)"><path d="M0 0 C -15 -15 -15 -38 0 -38 C 15 -38 15 -15 0 0 Z" fill="url(#pg)"/><circle cx="0" cy="-25" r="5.5" fill="#fff"/></g>
-  <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffa425"/><stop offset="1" stop-color="#f26a0a"/></linearGradient></defs>
-  <g transform="translate(352 140)"><rect x="-58" y="-2" width="116" height="26" rx="8" fill="#111"/><text x="0" y="16" class="pl">장우카센타 세차장</text></g>
-</svg></div><div class="mapnote"><svg class="i s"><use href="#i-pin"/></svg>노원역 → 상계초교사거리 방면 · 상계초등학교 바로 위쪽</div></div>
+      <div class="mapw"><div class="gmap"><img src="image/image.jpg" alt="장우세차장 카센타 매장 전경" loading="lazy"></div><div class="mapnote"><svg class="i s"><use href="#i-pin"/></svg>노원역 → 상계초교사거리 방면 · 상계초등학교 바로 위쪽</div></div>
       <div class="locinfo">
         <div class="tagrow"><span class="tg">100% 예약제</span><span class="tg">정비 + 세차</span></div>
         <b class="ad">서울 노원구 한글비석로47길 109<br>장우카센타 세차장</b>
