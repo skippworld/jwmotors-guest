@@ -1,9 +1,25 @@
 {
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/naver", "destination": "/index.html" },
-    { "source": "/daangn", "destination": "/index.html" },
-    { "source": "/kakao", "destination": "/index.html" },
-    { "source": "/instagram", "destination": "/index.html" }
+    {
+      "source": "/naver",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/daangn",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/kakao",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/instagram",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/threads",
+      "destination": "/index.html"
+    }
   ]
 }
