@@ -52,7 +52,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 20px 80px}
 /* category rail */
 .cats{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
 @media(max-width:980px){.cats{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:620px){.cats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}.cat{flex:0 0 112px;scroll-snap-align:start;padding:11px}.cat .ic{width:34px;height:34px}.cat b{font-size:14px}.cat .tag{top:8px;right:8px}.price{font-size:46px}.search input{font-size:19px;padding:16px 16px 16px 56px}}
+@media(max-width:620px){.cats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}.cat{flex:0 0 112px;scroll-snap-align:start;padding:11px}.cat .ic{width:34px;height:34px}.cat b{font-size:14px}.cat .tag{top:8px;right:8px}.price{font-size:46px}.search input{font-size:17px;padding:15px 12px 15px 54px}.search input::placeholder{font-size:14px;letter-spacing:-.4px}}
 .cat{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:14px 14px 13px;border-radius:16px;border:1.5px solid var(--line);background:#fff;text-align:left;transition:.15s}
 .cat .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--silver2);color:var(--ink2);transition:.15s}
 .cat b{font-size:15px;font-weight:700;letter-spacing:-.4px}
@@ -542,7 +542,7 @@ sp.addEventListener('click',close);setTimeout(close,3600);})();
 
   <div class="search">
     <div class="si"><svg class="i s"><use href="#i-search"/></svg></div>
-    <input id="q" type="search" autocomplete="off" placeholder="차종을 입력하세요 — 예) 그랜저, 아반떼, 쏘렌토">
+    <input id="q" type="search" autocomplete="off" placeholder="차종을 입력하세요 — 예) 그랜저, 쏘렌토">
   </div>
   <div class="hint">
     <span><svg class="i s"><use href="#i-info"/></svg>초성·세대코드로도 찾아져요</span>
